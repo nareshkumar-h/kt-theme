@@ -26,6 +26,8 @@ import { NavbarModule } from './navbar/navbar.module';
 import { LoadingBarComponent } from './components/loading-bar/loading-bar.component';
 import { ProgressSpinnerComponent } from './components/progress-spinner/progress-spinner.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { LayoutHeaderComponent } from './components/layout-header/layout-header.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { BrowserModule } from '@angular/platform-browser';
     ProgressBarComponent,
     LoadingBarComponent,
     ProgressSpinnerComponent,
+    LayoutComponent,
+    LayoutHeaderComponent,
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
@@ -61,6 +65,8 @@ import { BrowserModule } from '@angular/platform-browser';
     ThemeComponent,
     AuthLayoutComponent,
     HomeLayoutComponent,
+    LayoutComponent,
+    LayoutHeaderComponent,
     PageBarComponent,
     DashboardWidgetComponent,
     MomentPipe,
