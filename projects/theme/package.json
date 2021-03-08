@@ -1,6 +1,6 @@
 {
-  "name": "@nareshkumarh/kt-theme",
-  "version": "1.0.0",
+  "name": "@nareshkumarh/theme",
+  "version": "0.0.1",
   "repository": "https://github.com/nareshkumar-h/kt-theme.git",
   "peerDependencies": {
     "@angular/common": "^10.2.4",
