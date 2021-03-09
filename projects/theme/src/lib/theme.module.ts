@@ -21,13 +21,15 @@ import { CardModule } from './card/card.module';
 import { TableModule } from './table/table.module';
 import { SidenavModule } from './sidenav/sidenav.module';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
-import { MaterialModule } from './material.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { LoadingBarComponent } from './components/loading-bar/loading-bar.component';
 import { ProgressSpinnerComponent } from './components/progress-spinner/progress-spinner.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { LayoutHeaderComponent } from './components/layout-header/layout-header.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,9 @@ import { LayoutComponent } from './components/layout/layout.component';
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
     ChartsModule,
     NavbarModule,
     CardModule,
@@ -57,7 +62,6 @@ import { LayoutComponent } from './components/layout/layout.component';
     RouterModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    MaterialModule,
     BrowserModule,
   ],
   entryComponents: [],
@@ -77,8 +81,10 @@ import { LayoutComponent } from './components/layout/layout.component';
     LoadingBarComponent,
     NavbarModule,
     SidenavModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
     ChartsModule,
-    MaterialModule,
     CardModule,
     CommonModule,
     FormsModule,

@@ -22,11 +22,12 @@ export class HeaderComponent implements OnInit {
     //console.log("Menus:" , this.menus);
     //console.log("BgColor", this.bgColor);
     this.bgColor = this.bgColor || '#2b3643';
-    this.loggedInUsername = JSON.parse(
-      localStorage.getItem('LOGGED_IN_USER')
-    ).username;
-    this.selectedUser = this.getSelectedUser();
-    this.isMentor = this.user ? this.user.roles.indexOf('T') != -1 : false;
+    let user = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
+    if (user) {
+      this.loggedInUsername = user.username;
+      this.selectedUser = this.getSelectedUser();
+      this.isMentor = this.user ? this.user?.roles.indexOf('T') != -1 : false;
+    }
   }
 
   switchUser(selectedUser) {
