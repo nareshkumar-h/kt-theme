@@ -11,32 +11,27 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
-
-    
-
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" *ngIf="menus">
         <li class="nav-item" *ngFor="let m of menus">
           <a class="nav-link" [routerLink]="m.link" [queryParams]="m.queryParams">{{m.name}} </a>
         </li>
       </ul>
-      
-       
-          
+
       <ul class="navbar-nav ml-auto mr-0">
-        <li>
-           <!-- <form class="form-inline my-2 my-lg-0" (ngSubmit)="event.preventDefault()"> -->
-            
-            <div class="form-inline  mr-0">
-              
-              <input *ngIf="isMentor || user.name != selectedUser" class="form-inline form-control mr-sm-2" type="search" list="usersList" name="user"
-                [(ngModel)]="selectedUser" placeholder="Search Username" aria-label="Search" autocomplete="off"
-                (change)="switchUser($event.target.value)" [value]="selectedUser?selectedUser:''">
-              <datalist id="usersList">
-                <option *ngFor="let u of users" [value]="u.username">{{u.username}}</option>
-              </datalist>
-            </div>
-          
-            <!-- </form> -->
+        <li *ngIf="user">
+          <!-- <form class="form-inline my-2 my-lg-0" (ngSubmit)="event.preventDefault()"> -->
+
+          <div class="form-inline  mr-0">
+
+            <input *ngIf="isMentor || user.name != selectedUser" class="form-inline form-control mr-sm-2" type="search"
+              list="usersList" name="user" [(ngModel)]="selectedUser" placeholder="Search Username" aria-label="Search"
+              autocomplete="off" (change)="switchUser($event.target.value)" [value]="selectedUser?selectedUser:''">
+            <datalist id="usersList" *ngIf="users">
+              <option *ngFor="let u of users" [value]="u.username">{{u.username}}</option>
+            </datalist>
+          </div>
+
+          <!-- </form> -->
         </li>
         <li class="nav-item" *ngIf="user && selectedUser != user.username">
           <a class="nav-link" (click)="clearUser()">
@@ -47,8 +42,6 @@
         <li class="nav-item" *ngIf="!user">
           <a class="nav-link" routerLink="auth/login" [queryParams]="{ redirectUrl: 'dashboard'}">Login </a>
         </li>
-
-
         <li class="nav-item" *ngIf="!user">
           <a class="nav-link" routerLink="auth/register">Register</a>
         </li>
@@ -71,7 +64,7 @@
           </a>
         </li> -->
         <!-- <li class="nav-item" *ngIf="isMentor">
-                  <a class="nav-link" (click)="switchUserDialog()"> 
+                  <a class="nav-link" (click)="switchUserDialog()">
                     Switch User
                   </a>
                 </li> -->
@@ -91,7 +84,7 @@
 
 <script>
   let navigator = navigator.userAgent;
-  if(navigator != null && navigator.indexOf("Mobile") !=-1){
+  if (navigator != null && navigator.indexOf("Mobile") != -1) {
     document.querySelector(".navbar-brand").style.display = "none";
   }
 </script>

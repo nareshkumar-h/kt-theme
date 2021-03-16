@@ -14,6 +14,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   users: any;
 
+  @Input()
+  auth: boolean = false;
+
   isMentor = false;
   selectedUser: any;
   searchUser: string;

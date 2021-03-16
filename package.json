@@ -11,7 +11,9 @@
     "build:schematics": "tsc -p projects/theme/tsconfig.schematics.json",
     "copy:schematics": "cpr projects/theme/schematics dist/theme/schematics --deleteFirst",
     "npm-pack": "ng build theme --prod && npm run build:schematics && npm run copy:schematics && cd dist/theme && npm pack",
-    "pack": "ng build theme --prod && cd dist/theme && npm pack"
+    "copy-assets": "cpr projects/theme/src/assets dist/theme",
+    "pack": "ng build theme --prod && cpr projects/theme/src/assets dist/theme && cd dist/theme && npm pack",
+    "publish": "cd dist/theme && npm publish --access public"
   },
   "private": false,
   "dependencies": {
@@ -40,10 +42,12 @@
     "@angular-devkit/build-angular": "~0.1002.0",
     "@angular/cli": "~10.2.0",
     "@angular/compiler-cli": "~10.2.0",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "copy-files": "^0.1.0",
+    "cpr": "^3.0.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
